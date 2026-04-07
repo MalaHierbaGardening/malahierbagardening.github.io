@@ -7,33 +7,96 @@
   <meta name="description" content="Mantenimiento de jardines en Chiclana de la Frontera y alrededores. Mala Hierba Gardening, David Blanco. Podas, limpiezas puntuales, construcción y plantación de jardines. Presupuestos sin compromiso." />
   <meta name="keywords" content="mantenimiento de jardines en Chiclana, jardinero Chiclana de la Frontera, jardinería Chiclana, poda de árboles Chiclana, limpieza de parcelas, construcción de jardines" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: url('fondo2.webp')no-repeat center center;
-      background-size: cover;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      color: #1b5e20;
-  text-shadow: 1px 1px 3px rgba(255,255,255,0.4);
-  font-size: 3em;
-  margin: 0;
-    }
-    header p {
-      color: #1b5e20;
-  text-shadow: 1px 1px 3px rgba(255,255,255,0.4);
-      font-size: 1.2em;
-      margin-top: 10px;
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #f4f4f4; color: #333; }
+    header { background: url('fondo-jardin.webp') no-repeat center center; background-size: cover; color: white; padding: 60px 20px; text-align: center; }
+    header h1 { color: #1b5e20; text-shadow: 1px 1px 3px rgba(255,255,255,0.4); font-size: 3em; margin: 0; }
+    header p { text-shadow: 1px 1px 3px rgba(0,0,0,0.5); font-size: 1.2em; margin-top: 10px; }
+    .lang-switch { position: absolute; top: 10px; right: 20px; }
+    .lang-switch button { margin-left: 5px; padding: 5px 10px; cursor: pointer; }
+    main { padding: 20px; max-width: 900px; margin: auto; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-top: -30px; }
+    h2 { color: #2f7d32; border-bottom: 2px solid #66bb6a; padding-bottom: 5px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #e8f5e9; margin: 5px 0; padding: 10px; border-radius: 5px; }
+    section { margin-bottom: 25px; }
+    .contact-button { display: inline-block; background: #2f7d32; color: white; padding: 10px 20px; margin-top: 10px; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    .image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0 20px 0; }
+    .image-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+    @media (max-width: 768px) { .image-grid { grid-template-columns: 1fr; } }
+    footer { background:#eee; padding:20px; text-align:center; margin-top:20px; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button onclick="setLang('es')">ES</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<header>
+  <h1 id="title">Mala Hierba Gardening</h1>
+  <p id="subtitle">Mantenimiento de jardines en Chiclana de la Frontera y alrededores</p>
+</header>
+
+<main>
+
+<section>
+  <h2 id="services-title">Servicios de jardinería en Chiclana</h2>
+  <div class="image-grid">
+    <img src="mantenimiento.jpg">
+    <img src="poda.jpg">
+    <img src="plantacion.jpg">
+  </div>
+  <ul id="services-list">
+    <li>Mantenimientos mensuales de jardines</li>
+    <li>Limpiezas puntuales de parcelas y jardines</li>
+    <li>Poda de árboles y arbustos</li>
+    <li>Trabajos de jardinería en general</li>
+    <li>Construcción y plantación de jardines</li>
+    <li>Cuidado de plantas y césped</li>
+  </ul>
+</section>
+
+<section>
+  <h2 id="about-title">Sobre mí</h2>
+  <p id="about-text">Mi nombre es David Blanco y soy jardinero profesional.</p>
+</section>
+
+<section>
+  <h2>Contacto</h2>
+  <p>📞 635 778 046</p>
+  <p>📧 malahierbagardening@gmail.com</p>
+  <a href="https://wa.me/34635778046?text=Hola%20David,%20te%20escribo%20desde%20tu%20web%20para%20pedir%20presupuesto%20de%20jardiner%C3%ADa." class="contact-button" id="whatsapp-btn">Enviar WhatsApp</a>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Mala Hierba Gardening</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  if (lang === 'en') {
+    document.getElementById('subtitle').innerText = 'Garden maintenance in Chiclana de la Frontera and surrounding areas';
+    document.getElementById('services-title').innerText = 'Gardening services in Chiclana';
+    document.getElementById('services-list').innerHTML = `
+      <li>Monthly garden maintenance</li>
+      <li>One-time garden cleanups</li>
+      <li>Tree and shrub pruning</li>
+      <li>General gardening work</li>
+      <li>Garden construction and planting</li>
+      <li>Plant and lawn care</li>`;
+    document.getElementById('about-title').innerText = 'About me';
+    document.getElementById('about-text').innerText = 'My name is David Blanco and I am a professional gardener.';
+    document.getElementById('whatsapp-btn').innerText = 'Send WhatsApp';
+  } else {
+    location.reload();
+  }
+}
+</script>
+
+</body>
+</html>
     }
     main {
       padding: 20px;
